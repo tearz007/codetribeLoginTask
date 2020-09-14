@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   google() {
     this.auth.google2().then(data=> {
      this.user = data.user;
-      alert(this.user.uid + this.user.email);
+      alert("id: " + this.user.uid + "email: " + this.user.email);
       this.auth.updateUser(this.user).then(()=>{
 
       }).catch(err=>{
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
   facebook() {
     this.auth.facebookLogin().then(data => {
       this.user = data.user;
-      alert(this.user.uid + this.user.email);
+      alert("id: " + this.user.uid + "email: " + this.user.email);
       this.auth.updateUser(this.user).then(() => {
 
       }).catch(err => {
@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
 
   signOut() {
     this.auth.signOut().then(() => {
-      alert("welcome " + this.userName);
+      alert("Thank you for using our side" );
     }).catch(err => {
       alert(err.message);
     })
@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.auth.authUser(this.userName, this.password).then(()=>{
-      alert("welcome "+this.userName);
+      //alert("welcome "+this.userName);
     }).catch(err=>{
       alert(err.message);
     })
@@ -78,7 +78,7 @@ export class LoginComponent implements OnInit {
 
   signup(){
     this.auth.createUser(this.userName, this.password).then(() => {
-      alert("registert as" + this.userName);
+      alert("registered as" + this.userName);
     }).catch(err => {
       alert(err.message);
     })

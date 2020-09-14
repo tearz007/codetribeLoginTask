@@ -7,15 +7,16 @@
 
       <div class="login-box">
         <div class="text-box">
-          <input type="text" placeholder="enter phone number" [(ngModel)]="phoneNumber" />
+          <input type="text" placeholder="+27" [(ngModel)]="phoneNumber" />
         </div>
-        <div class="btn"><button>request OTP</button></div>
+        <div id="recaptcha-container"></div>
+        <div class="btn" (click)="otp()"><button>request OTP</button></div>
 
-        <div class="text-box">
-          <input type="text" placeholder="enter OTP" />
+  <div class="text-box">
+          <input type="text" placeholder="enter OTP"[(ngModel)]="code" />
         </div>
         <div class="btn">
-        <button>verify OTP</button>
+        <button (click)="varification()" >verify Otp</button>
         <button (click)="cancel()">cancel</button>
         </div>
 

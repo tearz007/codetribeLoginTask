@@ -9,8 +9,10 @@ import { auth } from 'firebase/app';
   styleUrls: ['./phone.component.scss']
 })
 export class PhoneComponent implements OnInit {
-  windowref: any;
+  windowref: any
   phoneNumber
+  code
+  confirmation
   constructor(private route: Router, public auth: LoginserviseService) { }
 
   ngOnInit(): void {
@@ -18,25 +20,36 @@ export class PhoneComponent implements OnInit {
     this.windowref = this.auth.getWindowRef();
   }
   otp() {
-    this.windowref.RecaptchaVerifier = new auth.RecaptchaVerifier('recaptcha'),{
-      'size':'normal',
-      callback:(Response)=>{
+    this.windowref.recaptchaVerifier = new auth.RecaptchaVerifier('recaptcha-container', {
+      'size': 'normal',
+      callback: (Response) => {
 
       }
-    }
-
-    var appVerifier =this. windowref.recaptchaVerifier;
+    });
+    this.windowref.recaptchaVerifier.render();
+    var appVerifier = this.windowref.recaptchaVerifier;
     auth().signInWithPhoneNumber(this.phoneNumber, appVerifier)
-      .then(()=> {
+      .then(data => {
+        alert(this.phoneNumber);
 
+        this.windowref.confirmation = data
 
-      }).catch(err=> {
-
+      }).catch(err => {
+        alert(err.message);
       });
   }
 
-  cancel(){
-this.route.navigate(['']);
+  varification() {
+    this.windowref.confirmation.confirm(this.code).then(data => {
+      this.auth.user$ = data;
+      alert("welcome user "+this.phoneNumber)
+    }).catch(err => {
+      alert(err.message);
+    })
+  }
+
+  cancel() {
+    this.route.navigate(['']);
   }
 
 }

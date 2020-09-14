@@ -27,9 +27,11 @@
         </div>
 
         <div *ngIf="auth.user$ | async as user; else logi">
-          {{ user | json }}
+          <h2 style="color: white;">{{ "welcome "}}{{ user.email | json}}</h2>
           <br />
-          <button (click)="signOut()">signOut</button>
+          <div class="btn">
+          <button  (click)="signOut()">signOut</button>
+          </div>
         </div>
         <ng-template #logi>
           <div class="list">
