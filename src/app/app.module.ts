@@ -8,6 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { PhoneComponent } from './components/phone/phone.component';
 
 
 const firebaseConfig = {
@@ -25,7 +26,8 @@ const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    PhoneComponent
   ],
   imports: [
     BrowserModule,

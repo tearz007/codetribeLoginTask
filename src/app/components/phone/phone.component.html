@@ -1,0 +1,22 @@
+<div class="main">
+  <div class="container">
+    <div class="collection">
+      <div class="loco">
+        <span><i>.Login</i></span>
+      </div>
+
+      <div class="login-box">
+        <div class="text-box">
+          <input type="text" placeholder="enter phone number" [(ngModel)]="phoneNumber" />
+        </div>
+        <button>request OTP</button>
+        <div class="text-box">
+          <input type="text" placeholder="enter OTP" />
+        </div>
+        <button>verify OTP</button>
+        <button (click)="cancel()">cancel</button>
+
+      </div>
+    </div>
+  </div>
+</div>

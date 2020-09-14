@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginserviseService } from '../../servises/loginservise.service'
 import { Observable, of } from 'rxjs'
 import { user } from '../../model/user'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-login',
@@ -14,11 +15,13 @@ export class LoginComponent implements OnInit {
   password;
   user:any =  {};
   array={};
-  constructor( public auth:LoginserviseService ) { }
+
+  constructor(public auth: LoginserviseService, private route: Router ) { }
 
   ngOnInit(): void {
     //this.array = this.auth.getUser(this.user).snapshotChanges();
   }
+
 
   google() {
     this.auth.google2().then(data=> {
@@ -51,18 +54,7 @@ export class LoginComponent implements OnInit {
   }
 
   phoneNumber() {
-    this.auth.phoneLogin().then(data => {
-      this.user = data.user;
-      alert(this.user.uid + this.user.email);
-      this.auth.updateUser(this.user).then(() => {
-
-      }).catch(err => {
-        alert(err.message)
-      })
-
-    }).catch(err => {
-      alert(err.message);
-    });
+    this.route.navigate(['phone']);
   }
 
 

@@ -45,9 +45,11 @@ export class LoginserviseService {
 
 /*-----------phone Number login----------------*/
 
+getWindowRef(){
+  return window;
+}
   phoneLogin() {
-    var provider = new auth.PhoneAuthProvider()
-    return this.auth.signInWithPopup(provider);
+
   }
 
 /*-----------phone Number End----------------*/
