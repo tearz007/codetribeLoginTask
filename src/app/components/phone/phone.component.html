@@ -9,12 +9,15 @@
         <div class="text-box">
           <input type="text" placeholder="enter phone number" [(ngModel)]="phoneNumber" />
         </div>
-        <button>request OTP</button>
+        <div class="btn"><button>request OTP</button></div>
+
         <div class="text-box">
           <input type="text" placeholder="enter OTP" />
         </div>
+        <div class="btn">
         <button>verify OTP</button>
         <button (click)="cancel()">cancel</button>
+        </div>
 
       </div>
     </div>

@@ -51,11 +51,13 @@
       position: relative;
 
       .text-box {
-        width: 99%;
+
         overflow: hidden;
         font-size: 20px;
         padding: 8px 0;
         margin: 8px 0;
+        margin-left: 10px;
+        width: 95%;
         border-bottom: 1px solid greenyellow;
         i {
           width: 30px;
@@ -78,7 +80,11 @@
   .btn button {
     background-color: cadetblue;
     padding: 7px 23px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    width: 40%;
+    outline: none;
+    overflow: hidden;
   }
   .list {
     margin: 5px;
