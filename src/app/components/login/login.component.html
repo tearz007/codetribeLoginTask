@@ -1,0 +1,73 @@
+<div class="main">
+  <div class="container">
+    <div class="collection">
+      <div class="loco">
+        <span><i>.Login</i></span>
+      </div>
+
+      <div class="login-box">
+        <div class="text-box">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="userName" [(ngModel)]="userName" />
+        </div>
+        <div class="text-box">
+          <i class="fas fa-unlock"></i>
+          <input
+            type="password"
+            placeholder="password"
+            [(ngModel)]="password"
+          />
+        </div>
+
+        <div class="btn">
+          <button (click)="login()" [disabled]="!userName || !password">
+            LogIn
+          </button>
+          <button (click)="signup()" [disabled]="!userName">signup</button>
+        </div>
+
+        <div *ngIf="auth.user$ | async as user; else logi">
+          {{ user | json }}
+          <br />
+          <button (click)="signOut()">signOut</button>
+        </div>
+        <ng-template #logi>
+          <div class="list">
+            <ul>
+              <li class="google" (click)="google()">Google</li>
+              <li class="facebook" (click)="facebook()">Facebook</li>
+              <li class="phone" (click)="phoneNumber()">phone Number</li>
+            </ul>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<!--
+
+   <div>
+    <h1>google</h1>
+    <button (click)="google()">google2</button>
+  </div>
+  <div>
+    <h1>facebook</h1>
+    <button (click)="facebook()">facebook</button>
+  </div>
+
+  <h1>base</h1>
+  *ngIf="auth.user$ |async as user; else logi"
+  <div *ngIf="auth.user$ | async as user; else logi">
+    {{ user | json }}
+    <br />
+    <button (click)="signOut()">signOut</button>
+  </div>
+
+  <ng-template #logis>
+    <button (click)="google()">google btn</button>
+  </ng-template>
+
+-->
