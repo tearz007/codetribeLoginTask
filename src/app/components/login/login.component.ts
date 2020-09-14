@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.auth.authUser(this.userName, this.password).then(()=>{
-      //alert("welcome "+this.userName);
+      alert("welcome "+this.userName);
     }).catch(err=>{
       alert(err.message);
     })
