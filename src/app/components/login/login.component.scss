@@ -109,5 +109,11 @@
       padding: 10px;
       border-radius: 15px;
     }
+    li:hover{
+      transition: 1s ease;
+      box-shadow: 0 0 1px 1px;
+      color: yellowgreen;
+    }
   }
 }
+
